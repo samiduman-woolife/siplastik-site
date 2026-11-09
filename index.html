@@ -165,8 +165,9 @@ section .bolum-baslik p{margin-top:.7rem;color:var(--c-metin-2)}
 .odeme-adim p b{color:#fff}
 .odeme-kutu{background:#fff;color:var(--c-metin);border-radius:6px;padding:1.8rem;box-shadow:0 24px 60px rgba(0,0,0,.35);max-width:440px;justify-self:center;width:100%}
 .odeme-kutu h3{font-size:1.3rem}
-.kart-logolar{display:flex;gap:.6rem;align-items:center;margin:.9rem 0 0}
+.kart-logolar{display:flex;gap:.6rem;align-items:center;margin:.9rem 0 0;flex-wrap:wrap}
 .kart-logolar .kart-rozet{height:30px;width:auto;border:1px solid var(--c-celik-acik);border-radius:4px;background:#fff}
+.kart-logolar .iyzi-rozet{border-color:#0A0A0A}
 .odeme-notu{margin-top:1rem;font-family:var(--f-mono);font-size:.7rem;color:var(--c-celik);line-height:1.5}
 .odeme-guven{display:flex;gap:.5rem;align-items:center;margin-top:.9rem;font-family:var(--f-mono);font-size:.72rem;color:var(--c-metin-2)}
 .odeme-guven .nokta{width:8px;height:8px;border-radius:50%;background:var(--c-yesil);display:inline-block}
@@ -278,7 +279,7 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
 <div class="ustbar">
   <div class="wrap">
     <span>İkitelli OSB Mah. Marmara O Blok Sk. O Blok No:30, Küçükçekmece / İstanbul</span>
-    <span><a href="tel:+905325430363">0532 543 03 63</a> · <a href="/cdn-cgi/l/email-protection#e881868e87a89b819884899b9c8183c68b8785"><span class="__cf_email__" data-cfemail="0a63646c654a79637a666b797e636124696567">[email&#160;protected]</span></a></span>
+    <span><a href="tel:+905325430363">0532 543 03 63</a> · <a href="/cdn-cgi/l/email-protection#650c0b030a25160c15090416110c0e4b060a08"><span class="__cf_email__" data-cfemail="8ee7e0e8e1cefde7fee2effdfae7e5a0ede1e3">[email&#160;protected]</span></a></span>
   </div>
 </div>
 
@@ -456,7 +457,8 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
     <div class="odeme-kutu" aria-label="Ödeme yöntemleri">
       <h3>Güvenli Ödeme</h3>
       <span class="eyebrow" style="color:var(--c-kirmizi)">iyzico altyapısı</span>
-      <div class="kart-logolar" aria-label="Kart markaları">
+      <div class="kart-logolar" aria-label="Kart markaları ve ödeme altyapısı">
+        <svg class="kart-rozet iyzi-rozet" viewBox="0 0 130 30"><rect width="130" height="30" rx="4" fill="#0A0A0A"/><text x="14" y="20" font-family="Arial, sans-serif" font-weight="bold" font-size="13" fill="#FFFFFF">iyzico</text><text x="62" y="20" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF">ile Öde</text></svg>
         <svg class="kart-rozet" viewBox="0 0 64 30"><rect width="64" height="30" rx="4" fill="#1A1F71"/><text x="32" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-style="italic" font-size="12" fill="#FFFFFF">VISA</text></svg>
         <svg class="kart-rozet" viewBox="0 0 64 30"><rect width="64" height="30" rx="4" fill="#F7F7F7"/><circle cx="27" cy="15" r="9" fill="#EB001B"/><circle cx="38" cy="15" r="9" fill="#F79E1B" fill-opacity=".9"/><text x="32" y="27.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="5" fill="#231F20" font-weight="bold">mastercard</text></svg>
         <svg class="kart-rozet" viewBox="0 0 64 30"><rect width="64" height="30" rx="4" fill="#FFFFFF"/><text x="32" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="13" fill="#EF3124">Troy</text></svg>
@@ -498,7 +500,7 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>İkitelli OSB Mah. Marmara O Blok Sk. O Blok No:30,<br>Küçükçekmece / İstanbul</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2Z"/></svg><span>Satış: <a href="tel:+905325430363">0532 543 03 63</a></span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E9E5B" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4A8.4 8.4 0 0 1 3.2 17L3 20l3-.6A8.4 8.4 0 1 0 21 11.5Z"/></svg><span>WhatsApp: <a href="https://wa.me/905322316002">0532 231 60 02</a></span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6L22 7"/></svg><span><a href="/cdn-cgi/l/email-protection#660f08000926150f160a0715120f0d4805090b"><span class="__cf_email__" data-cfemail="5f363139301f2c362f333e2c2b3634713c3032">[email&#160;protected]</span></a></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6L22 7"/></svg><span><a href="/cdn-cgi/l/email-protection#97fef9f1f8d7e4fee7fbf6e4e3fefcb9f4f8fa"><span class="__cf_email__" data-cfemail="a4cdcac2cbe4d7cdd4c8c5d7d0cdcf8ac7cbc9">[email&#160;protected]</span></a></span></li>
         </ul>
         <p class="kvkk-satiri" style="margin-top:1rem">Hafta içi 08:30–18:00 arası hizmetinizdeyiz.</p>
       </div>
@@ -564,6 +566,7 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
   <div class="sepet-alt">
     <div class="sepet-toplam"><span>Toplam</span><span id="sepetToplam">0,00 TL</span></div>
     <button class="btn btn-kirmizi" onclick="siparisBaslat()">Siparişi Tamamla</button>
+    <p style="text-align:center;font-family:var(--f-mono);font-size:.7rem;color:var(--c-metin-2);margin:.2rem 0 .6rem">iyzico ile Öde · Visa · Mastercard · Troy</p>
     <button class="btn btn-yesil" onclick="whatsappSiparis()">WhatsApp'tan Sipariş Ver</button>
   </div>
 </aside>
