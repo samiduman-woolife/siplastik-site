@@ -263,6 +263,18 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
 .cerez-tercih .secenek{display:flex;gap:.6rem;align-items:center;font-size:.85rem;margin-top:.5rem}
 .cerez-tercih .secenek input{accent-color:var(--c-kirmizi)}
 
+.yasa{background:var(--c-celik-acik)}
+.yasal-blok{background:#fff;border:1px solid #DCE1E6;border-radius:4px;margin-bottom:.8rem;overflow:hidden}
+.yasal-blok summary{cursor:pointer;padding:1.1rem 1.3rem;font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:1.05rem;color:var(--c-antrasit);border-left:4px solid var(--c-kirmizi);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.yasal-blok summary::after{content:"+";font-family:var(--f-mono);font-size:1.3rem;color:var(--c-kirmizi)}
+.yasal-blok[open] summary::after{content:"−"}
+.yasal-blok[open] summary{border-bottom:1px solid var(--c-celik-acik)}
+.yasal-icerik{padding:1.3rem;max-height:420px;overflow-y:auto}
+.yasal-icerik h2{font-size:1.3rem;margin-bottom:.8rem}
+.yasal-icerik h3{margin:1.1rem 0 .4rem;font-size:1rem}
+.yasal-icerik p,.yasal-icerik li{font-size:.9rem;color:var(--c-metin-2);margin-bottom:.5rem}
+.yasal-icerik ul{padding-left:1.2rem}
+
 /* responsive */
 @media (max-width:960px){
   .hero .wrap,.odeme .wrap,.hakkimizda-ic,.iletisim-ic{grid-template-columns:1fr}
@@ -517,7 +529,7 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
           <div class="fielt"><label for="i-ad">Ad Soyad / Firma</label><input id="i-ad" required type="text"></div>
           <div class="fielt"><label for="i-tel">Telefon</label><input id="i-tel" required type="tel" placeholder="05xx xxx xx xx"></div>
           <div class="fielt"><label for="i-mesaj">Mesajınız</label><textarea id="i-mesaj" required placeholder="Ürün, ölçü ve ihtiyaç miktarınızı yazın"></textarea></div>
-          <label class="riza-satiri"><input type="checkbox" required><span><a href="#" onclick="yasalAc('kvkk');return false">KVKK Aydınlatma Metni</a>'ni okudum; iletişim formumun bu amaçla işlenmesine onay veriyorum.</span></label>
+          <label class="riza-satiri"><input type="checkbox" required><span><a href="#d-'kvkk');return false">KVKK Aydınlatma Metni</a>'ni okudum; iletişim formumun bu amaçla işlenmesine onay veriyorum.</span></label>
           <button class="btn btn-kirmizi btn-gonder" type="submit">Gönder</button>
           <div class="gonder-ok" id="gonderOk">Mesajınız alındı. En kısa sürede dönüş yapacağız. Acil talepleriniz için bizi arayabilirsiniz.</div>
         </form>
@@ -593,20 +605,131 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
       <div class="fielt"><label>E-posta</label><input id="s-mail" required type="email"></div>
       <div class="fielt"><label>Teslimat Adresi</label><textarea id="s-adres" required></textarea></div>
       <div class="fielt"><label>Not (isteğe bağlı)</label><input id="s-not" type="text" placeholder="Fatura bilgisi, teslimat notu vb."></div>
-      <label class="riza-satiri"><input type="checkbox" required><span><a href="#" onclick="yasalAc('mesafeli');return false">Mesafeli Satış Sözleşmesi</a>'ni ve <a href="#" onclick="yasalAc('teslimat');return false">Teslimat ve İade Şartları</a>'nı okudum, kabul ediyorum.</span></label>
+      <label class="riza-satiri"><input type="checkbox" required><span><a href="#d-'mesafeli');return false">Mesafeli Satış Sözleşmesi</a>'ni ve <a href="#d-'teslimat');return false">Teslimat ve İade Şartları</a>'nı okudum, kabul ediyorum.</span></label>
       <button class="btn btn-kirmizi btn-gonder" type="submit">Ödemeye Geç →</button>
       <p class="odeme-notu">Ödeme, iyzico'nun güvenli 3D Secure sayfasında alınır; kart bilgisi sitemize iletilmez.</p>
     </form>
   </div>
 </div>
 
-<!-- YASAL SAYFALAR -->
-<div class="yasal-katman" id="yasalKatman">
-  <div class="yasal-sayfa">
-    <button class="kapat" onclick="katmanKapat('yasalKatman')">Kapat</button>
-    <div id="yasalIcerik"></div>
+<!-- YASAL BİLGİLER (statik — arama motorları ve iyzico incelemesi için doğrudan sayfada) -->
+<section class="yasa" id="yasal">
+  <div class="wrap">
+    <div class="bolum-baslik">
+      <span class="eyebrow">Yasal Bilgiler</span>
+      <h2>Gizlilik, KVKK ve Satış Sözleşmeleri</h2>
+      <p>Aşağıdaki başlıklara tıklayarak metinlerin tamamını okuyabilirsiniz.</p>
+    </div>
+    <details class="yasal-blok" id="d-gizlilik"><summary>Gizlilik Politikası ve KVKK Aydınlatma Metni</summary><div class="yasal-icerik"><h2>Gizlilik Politikası ve KVKK Aydınlatma Metni</h2>
+<p>İşbu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, veri sorumlusu <b>Sİ PLASTİK METAL SANAYİ VE TİCARET ANONİM ŞİRKETİ</b> (adres: İkitelli OSB Mah. Marmara O Blok Sk. O Blok No:30, Küçükçekmece/İstanbul · Halkalı Vergi Dairesi · Vergi No: 7700440440) tarafından hazırlanmıştır.</p>
+<h3>İşlenen Kişisel Veriler ve İşleme Amaçları</h3>
+<p>Web sitemizde iletişim formu, sipariş formu ve online ödeme akışları aracılığıyla; ad-soyad, firma bilgisi, telefon, e-posta, teslimat adresi, sipariş ve fatura bilgileri işlenir. Bu veriler; talep ve şikayetlerin yönetilmesi, siparişlerin alınması, teslimi ve faturalandırılması, ödemelerin tahsilatı, satış sonrası destek ve mevzuattan doğan yükümlülüklerin yerine getirilmesi amaçlarıyla işlenir.</p>
+<h3>Hukuki Sebepler</h3>
+<p>Verileriniz; sözleşmenin kurulması ve ifası, hukuki yükümlülüklerin yerine getirilmesi, meşru menfaat ve (pazarlama iletişimi halinde) açık rızanıza dayanarak işlenir.</p>
+<h3>Aktarım</h3>
+<p>Verileriniz; ödeme altyapısı sağlayıcısı iyzico Ödeme Hizmetleri A.Ş., kargo/lojistik firmaları, barındırma (hosting) hizmeti sağlayıcıları ve yasal yükümlülükler gereği yetkili kamu kurumlarıyla sınırlı olarak paylaşılır. Kart bilgileri tarafımızca alınmaz ve saklanmaz; yalnızca ödeme kuruluşunun güvenli altyapısında işlenir.</p>
+<h3>Saklama Süreleri</h3>
+<p>Veriler; ilgili işlem için mevzuatta öngörülen ve ticari defter tutma yükümlülüğünden doğan süreler boyunca saklanır, sürenin sonunda silinir veya anonimleştirilir.</p>
+<h3>İlgili Kişi Hakları (KVKK m.11)</h3>
+<ul><li>Kişisel verilerinin işlenip işlenmediğini öğrenme,</li><li>İşlenmişse buna ilişkin bilgi talep etme,</li><li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li><li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme,</li><li>Eksik veya yanlış işlenmişse düzeltilmesini isteme,</li><li>Silinmesini veya yok edilmesini isteme,</li><li>Düzeltme ve silinme taleplerinin üçüncü kişilere bildirilmesini isteme,</li><li>Otomatik sistemlerle analiz sonucunda aleyhe bir sonuca itiraz etme,</li><li>Kanuna aykırı işlenmesi sebebiyle zararın giderilmesini talep etme</li></ul>
+<p>Haklarınıza ilişkin taleplerinizi <b><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87eee9e1e8c7f4eef7ebe6f4f3eeeca9e4e8ea">[email&#160;protected]</a></b> adresine iletebilirsiniz; talebiniz en geç 30 gün içinde yanıtlanır.</p>`,
+mesafeli:`<h2>Mesafeli Satış Sözleşmesi (Ön Bilgilendirme Formu Dahil)</h2>
+<p><b>SATICI:</b> Sİ PLASTİK METAL SANAYİ VE TİCARET ANONİM ŞİRKETİ — Halkalı Vergi Dairesi, Vergi No: 7700440440 — İkitelli OSB Mah. Marmara O Blok Sk. O Blok No:30, Küçükçekmece/İstanbul · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3aaada5ac83b0aab3afa2b0b7aaa8eda0acae">[email&#160;protected]</a> · 0532 543 03 63<br><b>ALICI:</b> Sipariş formunda belirtilen tüketici/üye işyeri.</p>
+<h3>Konu</h3>
+<p>İşbu sözleşmenin konusu, ALICI'nın SATICI'nın siplastik.com internet sitesinden elektronik ortamda sipariş verdiği ürünlerin satışı ve teslimi ile tarafların hak ve yükümlülükleri ile 6502 sayılı Tüketicilerin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümleri uyarınca tarafların borçlarına ilişkin esasların belirlenmesidir.</p>
+<h3>Ürünler, Fiyat ve Ödeme</h3>
+<p>Ürün türü, ölçüsü, adedi ve satış bedeli; sipariş özet ekranında ve sonrasında e-posta ile gönderilen sipariş onayında yer alır. Gösterilen fiyatlar TL cinsindendir ve KDV dahildir. Ödemeler; sitede kredi/banka kartı ile (iyzico altyapısı, 3D Secure) veya banka havalesi ile yapılır. Kargo bedeli sipariş özetinde gösterilir; belirli tutar üzeri siparişlerde kargo SATICI'ya aittir (güncel tutar sipariş adımında bildirilir).</p>
+<h3>Teslimat</h3>
+<p>Siparişler, ödeme onayından sonra en geç 3 (üç) iş günü içinde anlaşmalı kargo firmasına teslim edilir. Uzak mesaj adreslerine teslimatta kargo firması ek ücret talep edebilir; böyle durumlarda ALICI bilgilendirilir.</p>
+<h3>Cayma Hakkı</h3>
+<p>ALICI, malın tesliminden itibaren 14 (on ad) gün içinde hiçbir gerekçe göstermeksizin ve cezai şert ödeksiz cayma hakkına sahiptir. Cayma bildirimi <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="056c6b636a45766c75696476716c6e2b666a68">[email&#160;protected]</a> adresine yapılır. İade edilecek ürün; ambalajı, aksesuarları ve varsa hediye ürünleriyle birlikte eksiksiz ve kullanılmamış olmalıdır. Cayma hakkı; hijyen gereği ambalajı açılmış ürünler ile ALICI isteğiyle özel üretilen/ölçüye göre kesilen ürünlerde kullanılamaz. Cayma halinde ürün bedeli, iade ürünün SATICI'ya ulaşmasından itibaren en geç 14 gün içinde ALICI'ya iade edilir.</p>
+<h3>Uyuşmazlıklar</h3>
+<p>İşbu sözleşmeden doğan uyuşmazlıklarda Tüketici Hakem Heyetleri ve Tüketici Mahkemeleri yetkilidir.</p>`,
+teslimat:`<h2>Teslimat ve İade Şartları</h2>
+<h3>Teslimat</h3>
+<ul><li>Siparişler, ödeme onayından sonra en geç 3 iş günü içinde kargoya verilir.</li>
+<li>Teslimat adresi sipariş formunda belirtilen adrestir; kargo teslim uyarısını takip etmeyen gecikmelerden SATICI sorumlu değildir.</li>
+<li>Toptan ve ton bazlı siparişlerde teslim süresi ve sevkiyat şekli (kamyon/kısmi) sipariş onayında bildirilir.</li></ul>
+<h3>İade ve Cayma</h3>
+<ul><li>Tüketici ALICI'lar, teslimden itibaren 14 gün içinde cayma hakkını kullanabilir.</li>
+<li>İade için ürün, orijinal ambalajı ve paket malzemesiyle birlikte, kullanılmamış olmalıdır.</li>
+<li>Özel üretilen, ölçüye göre kesilen veya hijyen gereği ambalajı açılmış ürünlerde cayma hakkı kullanılamaz.</li>
+<li>İade kargo bedeli cayma hakkı kullanan tüketiciye aittir; kusurlu/yanlış gönderimlerde SATICI'ya aittir.</li>
+<li>İade onayından sonra ödeme, en geç 14 gün içinde aynı kart/hesaba iade edilir.</li></ul>
+<h3>Hasar Bildirimi</h3>
+<p>Kargo hasarları teslim anında tutanakla tespit edilmeli ve 48 saat içinde bize bildirilmelidir; hasarlı ürün iade alınıp yenisiyle değiştirilir.</p>`,
+cerez:`<h2>Çerez Politikası</h2>
+<p>Web sitemizde aşağıdaki çerez türleri kullanılır:</p>
+<ul>
+<li><b>Zorunlu çerezler:</b> Sitenin çalışması, sepet işlemleri ve güvenlik için gereklidir; onay alınmaksızın kullanılır.</li>
+<li><b>İstatistik çerezleri:</b> Site kullanımını anonim ölçerek geliştirmemize yardımcı olur; onayınızla çalışır.</li>
+<li><b>Pazarlama çerezleri:</b> İlgi alanınıza uygun içerik/duyuru göstermek için kullanılır; onayınızla çalışır.</li>
+</ul>
+<p>Çerez tercihlerinizi tarayıcı ayarlarınızdan her zaman değiştirebilirsiniz. Çerezlerle işlenen veriler hakkında ayrıntı için Gizlilik Politikası ve KVKK Aydınlatma Metnimize bakabilirsiniz.</p></div></details>
+<details class="yasal-blok" id="d-mesafeli"><summary>Mesafeli Satış Sözleşmesi</summary><div class="yasal-icerik"><h2>Mesafeli Satış Sözleşmesi (Ön Bilgilendirme Formu Dahil)</h2>
+<p><b>SATICI:</b> Sİ PLASTİK METAL SANAYİ VE TİCARET ANONİM ŞİRKETİ — Halkalı Vergi Dairesi, Vergi No: 7700440440 — İkitelli OSB Mah. Marmara O Blok Sk. O Blok No:30, Küçükçekmece/İstanbul · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fc95929a93bc8f958c909d8f889597d29f9391">[email&#160;protected]</a> · 0532 543 03 63<br><b>ALICI:</b> Sipariş formunda belirtilen tüketici/üye işyeri.</p>
+<h3>Konu</h3>
+<p>İşbu sözleşmenin konusu, ALICI'nın SATICI'nın siplastik.com internet sitesinden elektronik ortamda sipariş verdiği ürünlerin satışı ve teslimi ile tarafların hak ve yükümlülükleri ile 6502 sayılı Tüketicilerin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümleri uyarınca tarafların borçlarına ilişkin esasların belirlenmesidir.</p>
+<h3>Ürünler, Fiyat ve Ödeme</h3>
+<p>Ürün türü, ölçüsü, adedi ve satış bedeli; sipariş özet ekranında ve sonrasında e-posta ile gönderilen sipariş onayında yer alır. Gösterilen fiyatlar TL cinsindendir ve KDV dahildir. Ödemeler; sitede kredi/banka kartı ile (iyzico altyapısı, 3D Secure) veya banka havalesi ile yapılır. Kargo bedeli sipariş özetinde gösterilir; belirli tutar üzeri siparişlerde kargo SATICI'ya aittir (güncel tutar sipariş adımında bildirilir).</p>
+<h3>Teslimat</h3>
+<p>Siparişler, ödeme onayından sonra en geç 3 (üç) iş günü içinde anlaşmalı kargo firmasına teslim edilir. Uzak mesaj adreslerine teslimatta kargo firması ek ücret talep edebilir; böyle durumlarda ALICI bilgilendirilir.</p>
+<h3>Cayma Hakkı</h3>
+<p>ALICI, malın tesliminden itibaren 14 (on ad) gün içinde hiçbir gerekçe göstermeksizin ve cezai şert ödeksiz cayma hakkına sahiptir. Cayma bildirimi <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="345d5a525b74475d44585547405d5f1a575b59">[email&#160;protected]</a> adresine yapılır. İade edilecek ürün; ambalajı, aksesuarları ve varsa hediye ürünleriyle birlikte eksiksiz ve kullanılmamış olmalıdır. Cayma hakkı; hijyen gereği ambalajı açılmış ürünler ile ALICI isteğiyle özel üretilen/ölçüye göre kesilen ürünlerde kullanılamaz. Cayma halinde ürün bedeli, iade ürünün SATICI'ya ulaşmasından itibaren en geç 14 gün içinde ALICI'ya iade edilir.</p>
+<h3>Uyuşmazlıklar</h3>
+<p>İşbu sözleşmeden doğan uyuşmazlıklarda Tüketici Hakem Heyetleri ve Tüketici Mahkemeleri yetkilidir.</p>`,
+teslimat:`<h2>Teslimat ve İade Şartları</h2>
+<h3>Teslimat</h3>
+<ul><li>Siparişler, ödeme onayından sonra en geç 3 iş günü içinde kargoya verilir.</li>
+<li>Teslimat adresi sipariş formunda belirtilen adrestir; kargo teslim uyarısını takip etmeyen gecikmelerden SATICI sorumlu değildir.</li>
+<li>Toptan ve ton bazlı siparişlerde teslim süresi ve sevkiyat şekli (kamyon/kısmi) sipariş onayında bildirilir.</li></ul>
+<h3>İade ve Cayma</h3>
+<ul><li>Tüketici ALICI'lar, teslimden itibaren 14 gün içinde cayma hakkını kullanabilir.</li>
+<li>İade için ürün, orijinal ambalajı ve paket malzemesiyle birlikte, kullanılmamış olmalıdır.</li>
+<li>Özel üretilen, ölçüye göre kesilen veya hijyen gereği ambalajı açılmış ürünlerde cayma hakkı kullanılamaz.</li>
+<li>İade kargo bedeli cayma hakkı kullanan tüketiciye aittir; kusurlu/yanlış gönderimlerde SATICI'ya aittir.</li>
+<li>İade onayından sonra ödeme, en geç 14 gün içinde aynı kart/hesaba iade edilir.</li></ul>
+<h3>Hasar Bildirimi</h3>
+<p>Kargo hasarları teslim anında tutanakla tespit edilmeli ve 48 saat içinde bize bildirilmelidir; hasarlı ürün iade alınıp yenisiyle değiştirilir.</p>`,
+cerez:`<h2>Çerez Politikası</h2>
+<p>Web sitemizde aşağıdaki çerez türleri kullanılır:</p>
+<ul>
+<li><b>Zorunlu çerezler:</b> Sitenin çalışması, sepet işlemleri ve güvenlik için gereklidir; onay alınmaksızın kullanılır.</li>
+<li><b>İstatistik çerezleri:</b> Site kullanımını anonim ölçerek geliştirmemize yardımcı olur; onayınızla çalışır.</li>
+<li><b>Pazarlama çerezleri:</b> İlgi alanınıza uygun içerik/duyuru göstermek için kullanılır; onayınızla çalışır.</li>
+</ul>
+<p>Çerez tercihlerinizi tarayıcı ayarlarınızdan her zaman değiştirebilirsiniz. Çerezlerle işlenen veriler hakkında ayrıntı için Gizlilik Politikası ve KVKK Aydınlatma Metnimize bakabilirsiniz.</p></div></details>
+<details class="yasal-blok" id="d-teslimat"><summary>Teslimat ve İade Şartları</summary><div class="yasal-icerik"><h2>Teslimat ve İade Şartları</h2>
+<h3>Teslimat</h3>
+<ul><li>Siparişler, ödeme onayından sonra en geç 3 iş günü içinde kargoya verilir.</li>
+<li>Teslimat adresi sipariş formunda belirtilen adrestir; kargo teslim uyarısını takip etmeyen gecikmelerden SATICI sorumlu değildir.</li>
+<li>Toptan ve ton bazlı siparişlerde teslim süresi ve sevkiyat şekli (kamyon/kısmi) sipariş onayında bildirilir.</li></ul>
+<h3>İade ve Cayma</h3>
+<ul><li>Tüketici ALICI'lar, teslimden itibaren 14 gün içinde cayma hakkını kullanabilir.</li>
+<li>İade için ürün, orijinal ambalajı ve paket malzemesiyle birlikte, kullanılmamış olmalıdır.</li>
+<li>Özel üretilen, ölçüye göre kesilen veya hijyen gereği ambalajı açılmış ürünlerde cayma hakkı kullanılamaz.</li>
+<li>İade kargo bedeli cayma hakkı kullanan tüketiciye aittir; kusurlu/yanlış gönderimlerde SATICI'ya aittir.</li>
+<li>İade onayından sonra ödeme, en geç 14 gün içinde aynı kart/hesaba iade edilir.</li></ul>
+<h3>Hasar Bildirimi</h3>
+<p>Kargo hasarları teslim anında tutanakla tespit edilmeli ve 48 saat içinde bize bildirilmelidir; hasarlı ürün iade alınıp yenisiyle değiştirilir.</p>`,
+cerez:`<h2>Çerez Politikası</h2>
+<p>Web sitemizde aşağıdaki çerez türleri kullanılır:</p>
+<ul>
+<li><b>Zorunlu çerezler:</b> Sitenin çalışması, sepet işlemleri ve güvenlik için gereklidir; onay alınmaksızın kullanılır.</li>
+<li><b>İstatistik çerezleri:</b> Site kullanımını anonim ölçerek geliştirmemize yardımcı olur; onayınızla çalışır.</li>
+<li><b>Pazarlama çerezleri:</b> İlgi alanınıza uygun içerik/duyuru göstermek için kullanılır; onayınızla çalışır.</li>
+</ul>
+<p>Çerez tercihlerinizi tarayıcı ayarlarınızdan her zaman değiştirebilirsiniz. Çerezlerle işlenen veriler hakkında ayrıntı için Gizlilik Politikası ve KVKK Aydınlatma Metnimize bakabilirsiniz.</p></div></details>
+<details class="yasal-blok" id="d-cerez"><summary>Çerez Politikası</summary><div class="yasal-icerik"><h2>Çerez Politikası</h2>
+<p>Web sitemizde aşağıdaki çerez türleri kullanılır:</p>
+<ul>
+<li><b>Zorunlu çerezler:</b> Sitenin çalışması, sepet işlemleri ve güvenlik için gereklidir; onay alınmaksızın kullanılır.</li>
+<li><b>İstatistik çerezleri:</b> Site kullanımını anonim ölçerek geliştirmemize yardımcı olur; onayınızla çalışır.</li>
+<li><b>Pazarlama çerezleri:</b> İlgi alanınıza uygun içerik/duyuru göstermek için kullanılır; onayınızla çalışır.</li>
+</ul>
+<p>Çerez tercihlerinizi tarayıcı ayarlarınızdan her zaman değiştirebilirsiniz. Çerezlerle işlenen veriler hakkında ayrıntı için Gizlilik Politikası ve KVKK Aydınlatma Metnimize bakabilirsiniz.</p></div></details>
   </div>
-</div>
+</section>
 
 <!-- ÇEREZ -->
 <div class="cerez" id="cerezBanner" role="dialog" aria-label="Çerez bildirimi">
@@ -630,7 +753,7 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
 
 <a class="wa-float" href="https://wa.me/905322316002?text=Merhaba%2C%20%C3%BCr%C3%BCnleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ============ AYARLAR — BURADAN YÖNETİLİR ============ */
 /* iyzico ödeme linki onay gelince buraya yapıştırılır (boşsa sipariş WhatsApp'a düşer) */
 const IYZICO_ODEME_LINKI = "";
@@ -734,59 +857,8 @@ function iletisimGonder(e){
 }
 
 /* ============ YASAL SAYFALAR ============ */
-const YASAL = {
-gizlilik:`<h2>Gizlilik Politikası ve KVKK Aydınlatma Metni</h2>
-<p>İşbu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, veri sorumlusu <b>Sİ PLASTİK METAL SANAYİ VE TİCARET ANONİM ŞİRKETİ</b> (adres: İkitelli OSB Mah. Marmara O Blok Sk. O Blok No:30, Küçükçekmece/İstanbul · Halkalı Vergi Dairesi · Vergi No: 7700440440) tarafından hazırlanmıştır.</p>
-<h3>İşlenen Kişisel Veriler ve İşleme Amaçları</h3>
-<p>Web sitemizde iletişim formu, sipariş formu ve online ödeme akışları aracılığıyla; ad-soyad, firma bilgisi, telefon, e-posta, teslimat adresi, sipariş ve fatura bilgileri işlenir. Bu veriler; talep ve şikayetlerin yönetilmesi, siparişlerin alınması, teslimi ve faturalandırılması, ödemelerin tahsilatı, satış sonrası destek ve mevzuattan doğan yükümlülüklerin yerine getirilmesi amaçlarıyla işlenir.</p>
-<h3>Hukuki Sebepler</h3>
-<p>Verileriniz; sözleşmenin kurulması ve ifası, hukuki yükümlülüklerin yerine getirilmesi, meşru menfaat ve (pazarlama iletişimi halinde) açık rızanıza dayanarak işlenir.</p>
-<h3>Aktarım</h3>
-<p>Verileriniz; ödeme altyapısı sağlayıcısı iyzico Ödeme Hizmetleri A.Ş., kargo/lojistik firmaları, barındırma (hosting) hizmeti sağlayıcıları ve yasal yükümlülükler gereği yetkili kamu kurumlarıyla sınırlı olarak paylaşılır. Kart bilgileri tarafımızca alınmaz ve saklanmaz; yalnızca ödeme kuruluşunun güvenli altyapısında işlenir.</p>
-<h3>Saklama Süreleri</h3>
-<p>Veriler; ilgili işlem için mevzuatta öngörülen ve ticari defter tutma yükümlülüğünden doğan süreler boyunca saklanır, sürenin sonunda silinir veya anonimleştirilir.</p>
-<h3>İlgili Kişi Hakları (KVKK m.11)</h3>
-<ul><li>Kişisel verilerinin işlenip işlenmediğini öğrenme,</li><li>İşlenmişse buna ilişkin bilgi talep etme,</li><li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li><li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme,</li><li>Eksik veya yanlış işlenmişse düzeltilmesini isteme,</li><li>Silinmesini veya yok edilmesini isteme,</li><li>Düzeltme ve silinme taleplerinin üçüncü kişilere bildirilmesini isteme,</li><li>Otomatik sistemlerle analiz sonucunda aleyhe bir sonuca itiraz etme,</li><li>Kanuna aykırı işlenmesi sebebiyle zararın giderilmesini talep etme</li></ul>
-<p>Haklarınıza ilişkin taleplerinizi <b>info@siplastik.com</b> adresine iletebilirsiniz; talebiniz en geç 30 gün içinde yanıtlanır.</p>`,
-mesafeli:`<h2>Mesafeli Satış Sözleşmesi (Ön Bilgilendirme Formu Dahil)</h2>
-<p><b>SATICI:</b> Sİ PLASTİK METAL SANAYİ VE TİCARET ANONİM ŞİRKETİ — Halkalı Vergi Dairesi, Vergi No: 7700440440 — İkitelli OSB Mah. Marmara O Blok Sk. O Blok No:30, Küçükçekmece/İstanbul · info@siplastik.com · 0532 543 03 63<br><b>ALICI:</b> Sipariş formunda belirtilen tüketici/üye işyeri.</p>
-<h3>Konu</h3>
-<p>İşbu sözleşmenin konusu, ALICI'nın SATICI'nın siplastik.com internet sitesinden elektronik ortamda sipariş verdiği ürünlerin satışı ve teslimi ile tarafların hak ve yükümlülükleri ile 6502 sayılı Tüketicilerin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümleri uyarınca tarafların borçlarına ilişkin esasların belirlenmesidir.</p>
-<h3>Ürünler, Fiyat ve Ödeme</h3>
-<p>Ürün türü, ölçüsü, adedi ve satış bedeli; sipariş özet ekranında ve sonrasında e-posta ile gönderilen sipariş onayında yer alır. Gösterilen fiyatlar TL cinsindendir ve KDV dahildir. Ödemeler; sitede kredi/banka kartı ile (iyzico altyapısı, 3D Secure) veya banka havalesi ile yapılır. Kargo bedeli sipariş özetinde gösterilir; belirli tutar üzeri siparişlerde kargo SATICI'ya aittir (güncel tutar sipariş adımında bildirilir).</p>
-<h3>Teslimat</h3>
-<p>Siparişler, ödeme onayından sonra en geç 3 (üç) iş günü içinde anlaşmalı kargo firmasına teslim edilir. Uzak mesaj adreslerine teslimatta kargo firması ek ücret talep edebilir; böyle durumlarda ALICI bilgilendirilir.</p>
-<h3>Cayma Hakkı</h3>
-<p>ALICI, malın tesliminden itibaren 14 (on ad) gün içinde hiçbir gerekçe göstermeksizin ve cezai şert ödeksiz cayma hakkına sahiptir. Cayma bildirimi info@siplastik.com adresine yapılır. İade edilecek ürün; ambalajı, aksesuarları ve varsa hediye ürünleriyle birlikte eksiksiz ve kullanılmamış olmalıdır. Cayma hakkı; hijyen gereği ambalajı açılmış ürünler ile ALICI isteğiyle özel üretilen/ölçüye göre kesilen ürünlerde kullanılamaz. Cayma halinde ürün bedeli, iade ürünün SATICI'ya ulaşmasından itibaren en geç 14 gün içinde ALICI'ya iade edilir.</p>
-<h3>Uyuşmazlıklar</h3>
-<p>İşbu sözleşmeden doğan uyuşmazlıklarda Tüketici Hakem Heyetleri ve Tüketici Mahkemeleri yetkilidir.</p>`,
-teslimat:`<h2>Teslimat ve İade Şartları</h2>
-<h3>Teslimat</h3>
-<ul><li>Siparişler, ödeme onayından sonra en geç 3 iş günü içinde kargoya verilir.</li>
-<li>Teslimat adresi sipariş formunda belirtilen adrestir; kargo teslim uyarısını takip etmeyen gecikmelerden SATICI sorumlu değildir.</li>
-<li>Toptan ve ton bazlı siparişlerde teslim süresi ve sevkiyat şekli (kamyon/kısmi) sipariş onayında bildirilir.</li></ul>
-<h3>İade ve Cayma</h3>
-<ul><li>Tüketici ALICI'lar, teslimden itibaren 14 gün içinde cayma hakkını kullanabilir.</li>
-<li>İade için ürün, orijinal ambalajı ve paket malzemesiyle birlikte, kullanılmamış olmalıdır.</li>
-<li>Özel üretilen, ölçüye göre kesilen veya hijyen gereği ambalajı açılmış ürünlerde cayma hakkı kullanılamaz.</li>
-<li>İade kargo bedeli cayma hakkı kullanan tüketiciye aittir; kusurlu/yanlış gönderimlerde SATICI'ya aittir.</li>
-<li>İade onayından sonra ödeme, en geç 14 gün içinde aynı kart/hesaba iade edilir.</li></ul>
-<h3>Hasar Bildirimi</h3>
-<p>Kargo hasarları teslim anında tutanakla tespit edilmeli ve 48 saat içinde bize bildirilmelidir; hasarlı ürün iade alınıp yenisiyle değiştirilir.</p>`,
-cerez:`<h2>Çerez Politikası</h2>
-<p>Web sitemizde aşağıdaki çerez türleri kullanılır:</p>
-<ul>
-<li><b>Zorunlu çerezler:</b> Sitenin çalışması, sepet işlemleri ve güvenlik için gereklidir; onay alınmaksızın kullanılır.</li>
-<li><b>İstatistik çerezleri:</b> Site kullanımını anonim ölçerek geliştirmemize yardımcı olur; onayınızla çalışır.</li>
-<li><b>Pazarlama çerezleri:</b> İlgi alanınıza uygun içerik/duyuru göstermek için kullanılır; onayınızla çalışır.</li>
-</ul>
-<p>Çerez tercihlerinizi tarayıcı ayarlarınızdan her zaman değiştirebilirsiniz. Çerezlerle işlenen veriler hakkında ayrıntı için Gizlilik Politikası ve KVKK Aydınlatma Metnimize bakabilirsiniz.</p>`
-};
-function yasalAc(key){
-  document.getElementById("yasalIcerik").innerHTML = YASAL[key];
-  document.getElementById("yasalKatman").classList.add("acik");
-  document.getElementById("yasalKatman").querySelector(".yasal-sayfa").scrollTop = 0;
-}
+
+function yasalAc(key){var d=document.getElementById("d-"+key);if(d){d.open=true;d.scrollIntoView({behavior:"smooth",block:"start"})}}
 function katmanKapat(id){document.getElementById(id).classList.remove("acik")}
 
 /* e-posta bağlantıları (maskeleme korumalı kurulum) */
