@@ -577,7 +577,7 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
           <div class="fielt"><label for="i-ad">Ad Soyad / Firma</label><input id="i-ad" required type="text"></div>
           <div class="fielt"><label for="i-tel">Telefon</label><input id="i-tel" required type="tel" placeholder="05xx xxx xx xx"></div>
           <div class="fielt"><label for="i-mesaj">Mesajınız</label><textarea id="i-mesaj" required placeholder="Ürün, ölçü ve ihtiyaç miktarınızı yazın"></textarea></div>
-          <label class="riza-satiri"><input type="checkbox" required><span><a href="#d-'kvkk');return false">KVKK Aydınlatma Metni</a>'ni okudum; iletişim formumun bu amaçla işlenmesine onay veriyorum.</span></label>
+          <label class="riza-satiri"><input type="checkbox" required><span><a href="#d-gizlilik" onclick="yasalAc('gizlilik')">KVKK Aydınlatma Metni</a>'ni okudum; iletişim formumun bu amaçla işlenmesine onay veriyorum.</span></label>
           <button class="btn btn-kirmizi btn-gonder" type="submit">Gönder</button>
           <div class="gonder-ok" id="gonderOk">Mesajınız alındı. En kısa sürede dönüş yapacağız. Acil talepleriniz için bizi arayabilirsiniz.</div>
         </form>
@@ -653,7 +653,7 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
       <div class="fielt"><label>E-posta</label><input id="s-mail" required type="email"></div>
       <div class="fielt"><label>Teslimat Adresi</label><textarea id="s-adres" required></textarea></div>
       <div class="fielt"><label>Not (isteğe bağlı)</label><input id="s-not" type="text" placeholder="Fatura bilgisi, teslimat notu vb."></div>
-      <label class="riza-satiri"><input type="checkbox" required><span><a href="#d-'mesafeli');return false">Mesafeli Satış Sözleşmesi</a>'ni ve <a href="#d-'teslimat');return false">Teslimat ve İade Şartları</a>'nı okudum, kabul ediyorum.</span></label>
+      <label class="riza-satiri"><input type="checkbox" required><span><a href="#d-mesafeli" onclick="yasalAc('mesafeli')">Mesafeli Satış Sözleşmesi</a>'ni ve <a href="#d-teslimat" onclick="yasalAc('teslimat')">Teslimat ve İade Şartları</a>'nı okudum, kabul ediyorum.</span></label>
       <button class="btn btn-kirmizi btn-gonder" type="submit">Ödemeye Geç →</button>
       <p class="odeme-notu">Ödeme, iyzico'nun güvenli 3D Secure sayfasında alınır; kart bilgisi sitemize iletilmez.</p>
     </form>
