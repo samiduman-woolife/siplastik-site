@@ -323,6 +323,18 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
 .yasal-icerik p,.yasal-icerik li{font-size:.9rem;color:var(--c-metin-2);margin-bottom:.5rem}
 .yasal-icerik ul{padding-left:1.2rem}
 
+/* okuma katmanı (sözleşme ekranı) */
+.okuma-katman{position:fixed;inset:0;z-index:97;background:rgba(36,38,42,.62);display:none;justify-content:center;align-items:center;padding:2vh 16px}
+.okuma-katman.acik{display:flex}
+.okuma-sayfa{position:relative;background:#fff;border-radius:6px;width:min(860px,100%);max-height:92vh;overflow-y:auto;padding:2.2rem 2.4rem;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.okuma-sayfa .kapat{position:sticky;top:0;float:right;border:none;background:var(--c-antrasit);color:#fff;border-radius:3px;padding:.5rem 1rem;cursor:pointer;font-family:var(--f-display);text-transform:uppercase;letter-spacing:.05em;font-size:.85rem}
+.okuma-sayfa .kapat:hover{background:var(--c-kirmizi)}
+.okuma-sayfa h2{font-size:1.5rem;margin:.6rem 0 1rem}
+.okuma-sayfa h3{margin:1.2rem 0 .4rem;font-size:1.05rem}
+.okuma-sayfa p,.okuma-sayfa li{font-size:.94rem;color:var(--c-metin-2);margin-bottom:.6rem}
+.okuma-sayfa ul{padding-left:1.2rem}
+.okuma-ipucu{font-family:var(--f-mono);font-size:.72rem;color:var(--c-celik);border-top:1px dashed var(--c-celik-acik);margin-top:1.4rem;padding-top:.8rem}
+
 /* responsive */
 @media (max-width:960px){
   .hero .wrap,.odeme .wrap,.hakkimizda-ic,.iletisim-ic{grid-template-columns:1fr}
@@ -577,7 +589,7 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
           <div class="fielt"><label for="i-ad">Ad Soyad / Firma</label><input id="i-ad" required type="text"></div>
           <div class="fielt"><label for="i-tel">Telefon</label><input id="i-tel" required type="tel" placeholder="05xx xxx xx xx"></div>
           <div class="fielt"><label for="i-mesaj">Mesajınız</label><textarea id="i-mesaj" required placeholder="Ürün, ölçü ve ihtiyaç miktarınızı yazın"></textarea></div>
-          <label class="riza-satiri"><input type="checkbox" required><span><a href="#d-gizlilik" onclick="yasalAc('gizlilik')">KVKK Aydınlatma Metni</a>'ni okudum; iletişim formumun bu amaçla işlenmesine onay veriyorum.</span></label>
+          <label class="riza-satiri"><input type="checkbox" required><span><a href="#d-gizlilik" onclick="yasalAc('gizlilik');return false">KVKK Aydınlatma Metni</a>'ni okudum; iletişim formumun bu amaçla işlenmesine onay veriyorum.</span></label>
           <button class="btn btn-kirmizi btn-gonder" type="submit">Gönder</button>
           <div class="gonder-ok" id="gonderOk">Mesajınız alındı. En kısa sürede dönüş yapacağız. Acil talepleriniz için bizi arayabilirsiniz.</div>
         </form>
@@ -612,10 +624,10 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
     <div>
       <h4>Yasal &amp; KVKK</h4>
       <ul>
-        <li><a onclick="yasalAc('gizlilik')">Gizlilik Politikası &amp; KVKK Aydınlatma Metni</a></li>
-        <li><a onclick="yasalAc('mesafeli')">Mesafeli Satış Sözleşmesi</a></li>
-        <li><a onclick="yasalAc('teslimat')">Teslimat ve İade Şartları</a></li>
-        <li><a onclick="yasalAc('cerez')">Çerez Politikası</a></li>
+        <li><a onclick="yasalAc('gizlilik');return false">Gizlilik Politikası &amp; KVKK Aydınlatma Metni</a></li>
+        <li><a onclick="yasalAc('mesafeli');return false">Mesafeli Satış Sözleşmesi</a></li>
+        <li><a onclick="yasalAc('teslimat');return false">Teslimat ve İade Şartları</a></li>
+        <li><a onclick="yasalAc('cerez');return false">Çerez Politikası</a></li>
       </ul>
       <p class="kvkk-satiri" style="margin-top:.7rem">Ödemelerde Visa · Mastercard · Troy kartları geçerlidir.</p>
     </div>
@@ -653,7 +665,7 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
       <div class="fielt"><label>E-posta</label><input id="s-mail" required type="email"></div>
       <div class="fielt"><label>Teslimat Adresi</label><textarea id="s-adres" required></textarea></div>
       <div class="fielt"><label>Not (isteğe bağlı)</label><input id="s-not" type="text" placeholder="Fatura bilgisi, teslimat notu vb."></div>
-      <label class="riza-satiri"><input type="checkbox" required><span><a href="#d-mesafeli" onclick="yasalAc('mesafeli')">Mesafeli Satış Sözleşmesi</a>'ni ve <a href="#d-teslimat" onclick="yasalAc('teslimat')">Teslimat ve İade Şartları</a>'nı okudum, kabul ediyorum.</span></label>
+      <label class="riza-satiri"><input type="checkbox" required><span><a href="#d-mesafeli" onclick="yasalAc('mesafeli');return false">Mesafeli Satış Sözleşmesi</a>'ni ve <a href="#d-teslimat" onclick="yasalAc('teslimat');return false">Teslimat ve İade Şartları</a>'nı okudum, kabul ediyorum.</span></label>
       <button class="btn btn-kirmizi btn-gonder" type="submit">Ödemeye Geç →</button>
       <p class="odeme-notu">Ödeme, iyzico'nun güvenli 3D Secure sayfasında alınır; kart bilgisi sitemize iletilmez.</p>
     </form>
@@ -780,9 +792,19 @@ cerez:`<h2>Çerez Politikası</h2>
 </section>
 
 <!-- ÇEREZ -->
+<!-- SÖZLEŞME OKUMA EKRANI -->
+<div class="okuma-katman" id="okumaKatman" onclick="if(event.target===this)katmanKapat('okumaKatman')">
+  <div class="okuma-sayfa" role="dialog" aria-modal="true" aria-label="Sözleşme okuma ekranı">
+    <button class="kapat" onclick="katmanKapat('okumaKatman')">Kapat ✕</button>
+    <h2 id="okumaBaslik"></h2>
+    <div id="okumaIcerik"></div>
+    <p class="okuma-ipucu">Bu metni dilediğiniz zaman sitedeki "Yasal Bilgiler" bölümünden de okuyabilirsiniz.</p>
+  </div>
+</div>
+
 <div class="cerez" id="cerezBanner" role="dialog" aria-label="Çerez bildirimi">
   <div class="wrap">
-    <p>Web sitemizde zorunlu çerezler dışında, istatistik ve pazarlama çerezleri yalnızca onayınızla kullanılır. Ayrıntılar: <a onclick="yasalAc('cerez')">Çerez Politikası</a> · <a onclick="yasalAc('gizlilik')">KVKK Aydınlatma Metni</a></p>
+    <p>Web sitemizde zorunlu çerezler dışında, istatistik ve pazarlama çerezleri yalnızca onayınızla kullanılır. Ayrıntılar: <a onclick="yasalAc('cerez');return false">Çerez Politikası</a> · <a onclick="yasalAc('gizlilik');return false">KVKK Aydınlatma Metni</a></p>
     <div class="cerez-aksi">
       <button class="btn btn-hat" type="button" onclick="cerezKapat('red')">Reddet</button>
       <button class="btn btn-hat" type="button" onclick="tercihAc()">Tercihlerim</button>
@@ -906,7 +928,16 @@ function iletisimGonder(e){
 
 /* ============ YASAL SAYFALAR ============ */
 
-function yasalAc(key){var d=document.getElementById("d-"+key);if(d){d.open=true;d.scrollIntoView({behavior:"smooth",block:"start"})}}
+function yasalAc(key){
+  var d=document.getElementById("d-"+key);
+  if(!d)return;
+  var b=d.querySelector("summary"), i=d.querySelector(".yasal-icerik");
+  document.getElementById("okumaBaslik").innerHTML=b?b.textContent:"";
+  document.getElementById("okumaIcerik").innerHTML=i?i.innerHTML:"";
+  document.getElementById("okumaKatman").classList.add("acik");
+  document.getElementById("okumaKatman").querySelector(".okuma-sayfa").scrollTop=0;
+}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")katmanKapat("okumaKatman")});
 function katmanKapat(id){document.getElementById(id).classList.remove("acik")}
 
 /* e-posta bağlantıları (maskeleme korumalı kurulum) */
