@@ -1059,7 +1059,7 @@ function katmanKapat(id){document.getElementById(id).classList.remove("acik")}
 (function(){var u="info",d="siplastik.com",m=u+"@"+d;document.querySelectorAll(".eposta-baglanti").forEach(function(a){a.href="mailto:"+m;a.textContent=m});document.querySelectorAll(".eposta-metin").forEach(function(s){s.textContent=m})})();
 
 /* üründen sepete yönlendirme (?sepet=id) */
-(function(){var m=location.search.match(/sepet=([a-z0-9-]+)/);if(m&&document.getElementById("adet-"+m[1])){sepeteEkle(m[1]);}})();
+(function(){var m=location.search.match(/sepet=([a-z0-9-]+)(?:&adet=(\d+))?/);if(m&&document.getElementById("adet-"+m[1])){if(m[2])document.getElementById("adet-"+m[1]).value=m[2];sepeteEkle(m[1]);}})();
 
 /* ============ ÇEREZ ============ */
 function cerezKapat(){document.getElementById("cerezBanner").style.display="none"}
