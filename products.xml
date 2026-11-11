@@ -14,6 +14,9 @@
 <g:identifier_exists>no</g:identifier_exists>
 <g:brand>Nus Çivi</g:brand>
 <g:price>299.99 TRY</g:price>
+<g:shipping>
+<g:price>0.00</g:price>
+</g:shipping>
 </item>
 <item>
 <g:id>sp-dubel-10</g:id>
@@ -28,6 +31,9 @@
 <g:identifier_exists>no</g:identifier_exists>
 <g:brand>Nus Çivi</g:brand>
 <g:price>750.00 TRY</g:price>
+<g:shipping>
+<g:price>0.00</g:price>
+</g:shipping>
 </item>
 <item>
 <g:id>nc-celik</g:id>
@@ -42,6 +48,9 @@
 <g:identifier_exists>no</g:identifier_exists>
 <g:brand>Nus Çivi</g:brand>
 <g:price>599.99 TRY</g:price>
+<g:shipping>
+<g:price>0.00</g:price>
+</g:shipping>
 </item>
 <item>
 <g:id>nc-beton</g:id>
@@ -56,6 +65,9 @@
 <g:identifier_exists>no</g:identifier_exists>
 <g:brand>Nus Çivi</g:brand>
 <g:price>119.99 TRY</g:price>
+<g:shipping>
+<g:price>0.00</g:price>
+</g:shipping>
 </item>
 </channel>
 </rss>
