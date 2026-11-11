@@ -941,7 +941,7 @@ cerez:`<h2>Çerez Politikası</h2>
 <script>
 /* ============ AYARLAR — BURADAN YÖNETİLİR ============ */
 /* iyzico ödeme linki onay gelince buraya yapıştırılır (boşsa sipariş WhatsApp'a düşer) */
-const IYZICO_ODEME_LINKI = "";
+const ODEME_LINKLERI = { "nc-cati": "https://iyzi.link/AK0utw" };
 const WHATSAPP_NUMARA = "905322316002";
 
 const FOTO={
@@ -1019,11 +1019,14 @@ function siparisBaslat(){
 }
 function siparisGonder(e){
   e.preventDefault();
-  if(IYZICO_ODEME_LINKI){
-    /* iyzico linki hazır olduğunda: ödeme sayfasına yönlendirilir */
-    window.location.href = IYZICO_ODEME_LINKI;
+  /* tek ürün + 1 adet + ödeme linki varsa: iyzico güvenli ödeme sayfası */
+  var tekId=Object.keys(sepet).length===1?Object.keys(sepet)[0]:null;
+  if(tekId && sepet[tekId]===1 && ODEME_LINKLERI[tekId]){
+    document.getElementById("siparisOzet").innerHTML = '<p style="font-size:.95rem;color:#1F6B41;border:1px solid var(--c-yesil);background:rgba(46,158,91,.1);border-radius:4px;padding:1rem"><b>iyzico güvenli ödemeye yönlendiriliyorsunuz…</b><br>Tutar: '+TL(sepetTutar()+kargoTutar())+' (kargo dahil). Kart bilgisi sitemize iletilmez.</p>';
+    window.location.href = ODEME_LINKLERI[tekId];
     return false;
   }
+  /* adetli/çoklu sipariş: link tutarı sabit olduğundan WhatsApp akışı */
   const no = "SP-" + new Date().toISOString().slice(0,10).replace(/-/g,"") + "-" + Math.floor(1000+Math.random()*9000);
   const metin = `Yeni sipariş ${no}: ` + Object.entries(sepet).map(([id,ad])=>{const u=URUNLER.find(x=>x.id===id);return `${u.ad} x${ad}`}).join(", ") + ` | Toplam: ${TL(sepetTutar()+kargoTutar())} (kargo ${kargoTutar()===0?"ücretsiz":TL(kargoTutar())}) | Ad: ${document.getElementById("s-ad").value} | Tel: ${document.getElementById("s-tel").value} | Adres: ${document.getElementById("s-adres").value}` + (document.getElementById("s-not").value?` | Not: ${document.getElementById("s-not").value}`:"");
   window.open(`https://wa.me/${WHATSAPP_NUMARA}?text=${encodeURIComponent(metin)}`,"_blank");
