@@ -312,7 +312,13 @@ footer.alt .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:w
 <p style="color:#2a7a3b;font-weight:600;margin:0 0 20px">🚚 Her siparişte kargo ücretsiz</p>
 <p style="line-height:1.7">Sertleştirilmiş, kanallı gövdeli çelik çivi; kaba inşaattan marangozlara genel amaçlı, imalattan doğrudan.</p>
 <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
-<a class="btn btn-kirmizi" style="text-decoration:none;padding:14px 22px" href="https://siplastik.com/?sepet=nc-celik">🛒 Sepete Ekle</a>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+<span style="font-weight:700">Adet:</span>
+<button type="button" onclick="var e=document.getElementById('adetGiris');e.value=Math.max(1,(parseInt(e.value)||1)-1)" style="width:38px;height:38px;font-size:20px;font-weight:700;border:1px solid #ccc;border-radius:8px;background:#fff;cursor:pointer">−</button>
+<input id="adetGiris" type="number" min="1" value="1" style="width:70px;height:38px;text-align:center;font-size:16px;border:1px solid #ccc;border-radius:8px">
+<button type="button" onclick="var e=document.getElementById('adetGiris');e.value=(parseInt(e.value)||1)+1" style="width:38px;height:38px;font-size:20px;font-weight:700;border:1px solid #ccc;border-radius:8px;background:#fff;cursor:pointer">+</button>
+</div>
+<a class="btn btn-kirmizi" style="text-decoration:none;padding:14px 22px" href="https://siplastik.com/?sepet=nc-celik" onclick="this.href='https://siplastik.com/?sepet=nc-celik&adet='+(parseInt(document.getElementById('adetGiris').value)||1)">🛒 Sepete Ekle</a>
 <a class="btn" style="text-decoration:none;padding:14px 22px;background:#25D366;color:#fff;font-weight:700" href="https://wa.me/905322316002?text=Merhaba, Çelik Çivi (Kanallı) (5 kg paket) sipariş vermek istiyorum.">WhatsApp'tan Sipariş Ver</a>
 </div>
 <p style="font-size:13px;color:#888;margin-top:16px">Ödeme, iyzico'nun güvenli 3D Secure sayfasında alınır; kart bilgisi sitemize iletilmez.</p>
