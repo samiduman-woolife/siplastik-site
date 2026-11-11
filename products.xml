@@ -15,7 +15,7 @@
 <g:brand>Nus Çivi</g:brand>
 <g:price>299.99 TRY</g:price>
 <g:shipping>
-<g:price>0.00</g:price>
+<g:price>200.00</g:price>
 </g:shipping>
 </item>
 <item>
@@ -32,7 +32,7 @@
 <g:brand>Nus Çivi</g:brand>
 <g:price>750.00 TRY</g:price>
 <g:shipping>
-<g:price>0.00</g:price>
+<g:price>200.00</g:price>
 </g:shipping>
 </item>
 <item>
@@ -49,7 +49,7 @@
 <g:brand>Nus Çivi</g:brand>
 <g:price>599.99 TRY</g:price>
 <g:shipping>
-<g:price>0.00</g:price>
+<g:price>200.00</g:price>
 </g:shipping>
 </item>
 <item>
@@ -66,7 +66,7 @@
 <g:brand>Nus Çivi</g:brand>
 <g:price>119.99 TRY</g:price>
 <g:shipping>
-<g:price>0.00</g:price>
+<g:price>200.00</g:price>
 </g:shipping>
 </item>
 </channel>

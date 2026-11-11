@@ -876,7 +876,7 @@ cerez:`<h2>Çerez Politikası</h2>
 <details class="yasal-blok" id="d-teslimat"><summary>Teslimat ve İade Şartları</summary><div class="yasal-icerik"><h2>Teslimat ve İade Şartları</h2>
 <h3>Teslimat</h3>
 <ul>
-        <li>Her siparişte kargo ücretsizdir.</li><li>Siparişler, ödeme onayından sonra en geç 3 iş günü içinde kargoya verilir.</li>
+        <li>Sipariş tutarı 5.000 TL ve üzerinde olduğunda kargo ücretsizdir; bu tutarın altındaki siparişlerde kargo ücreti KDV dahil 200 TL'dir.</li><li>Siparişler, ödeme onayından sonra en geç 3 iş günü içinde kargoya verilir.</li>
 <li>Teslimat adresi sipariş formunda belirtilen adrestir; kargo teslim uyarısını takip etmeyen gecikmelerden SATICI sorumlu değildir.</li>
 <li>Toptan ve ton bazlı siparişlerde teslim süresi ve sevkiyat şekli (kamyon/kısmi) sipariş onayında bildirilir.</li></ul>
 <h3>İade ve Cayma</h3>
@@ -978,7 +978,7 @@ function kartHtml(u, koyu){
   if(u.teklif){
     return `<div class="${koyu?'nc-kart':'m-kart'}">${u.foto?`<img class="urun-foto" src="${u.foto}" alt="${u.ad}" loading="lazy">`:SVG_IKONLARI[u.svg]}<h3>${u.ad}</h3><span class="olcu">${u.olcu}</span><p>${u.aciklama}</p><div class="kullanim">${u.kullanim.map(k=>`<span>${k}</span>`).join("")}</div><a class="detay" href="#toptan" style="${koyu?'color:#fff;border-bottom-color:var(--c-kirmizi)':'color:var(--c-antrasit);border-bottom-color:var(--c-kirmizi)'};font-family:var(--f-display);text-transform:uppercase;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-decoration:none;align-self:flex-start">Teklif Formuna Git</a></div>`;
   }
-  return `<div class="${koyu?'nc-kart':'m-kart'}">${u.foto?`<img class="urun-foto" src="${u.foto}" alt="${u.ad}" loading="lazy">`:SVG_IKONLARI[u.svg]}<h3>${u.ad}</h3><span class="olcu">${u.olcu}</span><p>${u.aciklama}</p><div class="kullanim">${u.kullanim.map(k=>`<span>${k}</span>`).join("")}</div><div class="m-fiyat-satiri"><div class="m-fiyat">${TL(u.fiyat)}<small>${u.birim} · KDV dahil</small></div><div class="m-adet"><button onclick="adetDegistir('${u.id}',-1)" aria-label="azalt">−</button><input id="adet-${u.id}" value="1" inputmode="numeric" aria-label="adet" onchange="adetAyarla('${u.id}',this.value)"><button onclick="adetDegistir('${u.id}',1)" aria-label="arttır">+</button></div></div><button class="btn btn-kirmizi m-sepet-ekle" onclick="sepeteEkle('${u.id}')">Sepete Ekle</button></div>`;
+  return `<div class="${koyu?'nc-kart':'m-kart'}">${u.foto?`<img class="urun-foto" src="${u.foto}" alt="${u.ad}" loading="lazy">`:SVG_IKONLARI[u.svg]}<h3>${u.ad}</h3><span class="olcu">${u.olcu}</span><p>${u.aciklama}</p><div class="kullanim">${u.kullanim.map(k=>`<span>${k}</span>`).join("")}</div><div class="m-fiyat-satiri"><div class="m-fiyat">${TL(u.fiyat)}<small>${u.birim} · KDV dahil</small><span style="display:block;font-size:.72rem;color:#2a7a3b;font-weight:600;margin-top:2px">🚚 5.000 TL üzeri kargo ücretsiz · altında 200 TL</span></div><div class="m-adet"><button onclick="adetDegistir('${u.id}',-1)" aria-label="azalt">−</button><input id="adet-${u.id}" value="1" inputmode="numeric" aria-label="adet" onchange="adetAyarla('${u.id}',this.value)"><button onclick="adetDegistir('${u.id}',1)" aria-label="arttır">+</button></div></div><button class="btn btn-kirmizi m-sepet-ekle" onclick="sepeteEkle('${u.id}')">Sepete Ekle</button></div>`;
 }
 document.getElementById("ncUrunler").innerHTML = URUNLER.map(u=>kartHtml(u,true)).join("");
 function adetDegistir(id,d){const el=document.getElementById("adet-"+id);el.value=Math.max(1,(parseInt(el.value)||1)+d)}
@@ -1001,8 +1001,12 @@ function sepetCiz(){
   else{
     kutu.innerHTML=Object.entries(sepet).map(([id,ad])=>{const u=URUNLER.find(x=>x.id===id);return `<div class="sepet-oge"><div><div class="ad">${u.ad}</div><div class="alt">${u.birim} × ${ad}</div></div><span class="tutar">${TL(u.fiyat*ad)}</span><button class="sil" onclick="sepetSil('${id}')">çıkar</button></div>`}).join("");
   }
-  document.getElementById("sepetToplam").textContent = TL(sepetTutar());
+  var kEl=document.getElementById("sepetKargo");
+  if(!kEl){var st=document.getElementById("sepetToplam");if(st&&st.parentNode){kEl=document.createElement("div");kEl.id="sepetKargo";st.parentNode.insertBefore(kEl,st);}}
+  if(kEl)kEl.innerHTML=Object.keys(sepet).length?'<div style="display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--c-metin-2);padding:.25rem 0"><span>Kargo</span><span>'+(kargoTutar()===0?"ÜCRETSİZ":TL(kargoTutar()))+'</span></div>':"";
+  document.getElementById("sepetToplam").textContent = TL(sepetTutar()+kargoTutar());
 }
+function kargoTutar(){var t=sepetTutar();return Object.keys(sepet).length?(t>=5000?0:200):0}
 function sepetAc(){document.getElementById("sepetPanel").classList.add("acik");document.getElementById("sepetKapatici").classList.add("acik")}
 function sepetKapat(){document.getElementById("sepetPanel").classList.remove("acik");document.getElementById("sepetKapatici").classList.remove("acik")}
 
@@ -1021,7 +1025,7 @@ function siparisGonder(e){
     return false;
   }
   const no = "SP-" + new Date().toISOString().slice(0,10).replace(/-/g,"") + "-" + Math.floor(1000+Math.random()*9000);
-  const metin = `Yeni sipariş ${no}: ` + Object.entries(sepet).map(([id,ad])=>{const u=URUNLER.find(x=>x.id===id);return `${u.ad} x${ad}`}).join(", ") + ` | Toplam: ${TL(sepetTutar())} | Ad: ${document.getElementById("s-ad").value} | Tel: ${document.getElementById("s-tel").value} | Adres: ${document.getElementById("s-adres").value}` + (document.getElementById("s-not").value?` | Not: ${document.getElementById("s-not").value}`:"");
+  const metin = `Yeni sipariş ${no}: ` + Object.entries(sepet).map(([id,ad])=>{const u=URUNLER.find(x=>x.id===id);return `${u.ad} x${ad}`}).join(", ") + ` | Toplam: ${TL(sepetTutar()+kargoTutar())} (kargo ${kargoTutar()===0?"ücretsiz":TL(kargoTutar())}) | Ad: ${document.getElementById("s-ad").value} | Tel: ${document.getElementById("s-tel").value} | Adres: ${document.getElementById("s-adres").value}` + (document.getElementById("s-not").value?` | Not: ${document.getElementById("s-not").value}`:"");
   window.open(`https://wa.me/${WHATSAPP_NUMARA}?text=${encodeURIComponent(metin)}`,"_blank");
   document.getElementById("siparisOzet").innerHTML = `<p style="font-size:.95rem;color:#1F6B41;border:1px solid var(--c-yesil);background:rgba(46,158,91,.1);border-radius:4px;padding:1rem"><b>Sipariş numaranız: ${no}</b><br>Siparişiniz WhatsApp üzerinden satış ekibimize iletildi. Onaydan sonra size ödeme linki gönderılacak; ödemeniz iyzico güvenli altyapısıyla alınır.</p>`;
   sepet = {}; sepetCiz();
@@ -1029,7 +1033,7 @@ function siparisGonder(e){
 }
 function whatsappSiparis(){
   if(!Object.keys(sepet).length){alert("Sepetiniz boş. Önce ürün ekleyin.");return}
-  const metin = "Merhaba, şu ürünler için sipariş vermek istiyorum: " + Object.entries(sepet).map(([id,ad])=>{const u=URUNLER.find(x=>x.id===id);return `${u.ad} x${ad}`}).join(", ") + ` (Toplam: ${TL(sepetTutar())})`;
+  const metin = "Merhaba, şu ürünler için sipariş vermek istiyorum: " + Object.entries(sepet).map(([id,ad])=>{const u=URUNLER.find(x=>x.id===id);return `${u.ad} x${ad}`}).join(", ") + ` (Toplam: ${TL(sepetTutar()+kargoTutar())}${kargoTutar()===0?", kargo ücretsiz":", kargo "+TL(kargoTutar())+" dahil"})`;
   window.open(`https://wa.me/${WHATSAPP_NUMARA}?text=${encodeURIComponent(metin)}`,"_blank");
 }
 
