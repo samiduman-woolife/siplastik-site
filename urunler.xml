@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+<channel>
+<title>Si Plastik - Nus Civi Urunleri</title>
+<link>https://siplastik.com/</link>
+<description>Nus Civi marka civi ve Si Plastik dubel urunleri</description>
+<item>
+<g:id>nc-cati</g:id>
+<g:title>Çatı Çivisi (Contalı) - 2,5 kg Paket</g:title>
+<g:description>Galvanizli kaplama sayesinde paslanmaya karşı dayanıklı, uzun ömürlü bağlantı sağlar. Çatı ve dış mekan kullanımına uygundur.</g:description>
+<g:product_type>Anasayfa&gt;Yapı Malzemeleri&gt;Çivi ve Dübel</g:product_type>
+<g:link>https://siplastik.com/urun/nc-cati.html</g:link>
+<g:image_link>https://siplastik.com/foto/cati.jpg</g:image_link>
+<g:condition>new</g:condition>
+<g:availability>in stock</g:availability>
+<g:identifier_exists>no</g:identifier_exists>
+<g:brand>Nus Çivi</g:brand>
+<g:price>299.99 TRY</g:price>
+<g:shipping>
+<g:price>200.00</g:price>
+</g:shipping>
+</item>
+<item>
+<g:id>sp-dubel-10</g:id>
+<g:title>Plastik Mantolama Dübeli 10 cm - 500 Adet Paket</g:title>
+<g:description>Geniş başlıklı, özel tırnaklı; dolu, boşluklu ve bims blok gibi yalıtım malzemelerine güvenli bağlantı sağlar.</g:description>
+<g:product_type>Anasayfa&gt;Yapı Malzemeleri&gt;Çivi ve Dübel</g:product_type>
+<g:link>https://siplastik.com/urun/sp-dubel-10.html</g:link>
+<g:image_link>https://siplastik.com/foto/dubel.jpg</g:image_link>
+<g:condition>new</g:condition>
+<g:availability>in stock</g:availability>
+<g:identifier_exists>no</g:identifier_exists>
+<g:brand>Nus Çivi</g:brand>
+<g:price>750.00 TRY</g:price>
+<g:shipping>
+<g:price>200.00</g:price>
+</g:shipping>
+</item>
+<item>
+<g:id>nc-celik</g:id>
+<g:title>Çelik Çivi (Kanallı) - 5 kg Paket</g:title>
+<g:description>Yüksek dayanımlı çelikten üretilmiş, kanallı yapısıyla tutuş gücü yüksek inşaat çivisi. 5 kg ekonomik pakette.</g:description>
+<g:product_type>Anasayfa&gt;Yapı Malzemeleri&gt;Çivi ve Dübel</g:product_type>
+<g:link>https://siplastik.com/urun/nc-celik.html</g:link>
+<g:image_link>https://siplastik.com/foto/celik.jpg</g:image_link>
+<g:condition>new</g:condition>
+<g:availability>in stock</g:availability>
+<g:identifier_exists>no</g:identifier_exists>
+<g:brand>Nus Çivi</g:brand>
+<g:price>599.99 TRY</g:price>
+<g:shipping>
+<g:price>200.00</g:price>
+</g:shipping>
+</item>
+<item>
+<g:id>nc-beton</g:id>
+<g:title>Beton İnşaat Çivisi - 1 kg Paket</g:title>
+<g:description>Beton ve sert zeminler için yüksek sertliğe sahip inşaat çivisi. 1 kg pakette sunulur.</g:description>
+<g:product_type>Anasayfa&gt;Yapı Malzemeleri&gt;Çivi ve Dübel</g:product_type>
+<g:link>https://siplastik.com/urun/nc-beton.html</g:link>
+<g:image_link>https://siplastik.com/foto/beton.jpg</g:image_link>
+<g:condition>new</g:condition>
+<g:availability>in stock</g:availability>
+<g:identifier_exists>no</g:identifier_exists>
+<g:brand>Nus Çivi</g:brand>
+<g:price>119.99 TRY</g:price>
+<g:shipping>
+<g:price>200.00</g:price>
+</g:shipping>
+</item>
+</channel>
+</rss>
